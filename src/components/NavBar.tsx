@@ -20,6 +20,9 @@ export function NavBar() {
             <li>
               <a>Coaches</a>
             </li>
+            <li>
+              <a>About</a>
+            </li>
           </ul>
         </div>
       </div>

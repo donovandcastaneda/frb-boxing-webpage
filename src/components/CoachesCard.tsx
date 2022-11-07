@@ -1,6 +1,6 @@
 import React from "react";
 
-type Boxer = {
+type Coach = {
   id: number;
   name: {
     first: string;
@@ -10,7 +10,7 @@ type Boxer = {
   status: string;
 }
 
-export const Boxer = (props: Boxer) => {
+export const Coach = (props: Coach) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
