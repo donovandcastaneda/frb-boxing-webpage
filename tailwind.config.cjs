@@ -7,5 +7,5 @@ module.exports = {
   fontFamily: {
  'fire': 'Fira Sans',
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
