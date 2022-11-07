@@ -2,8 +2,8 @@ import React from "react";
 
 export function NavBar() {
   return (
-    <nav className="bg-zinc-900">
-      <div className="px-10 mx-auto  ">
+    <nav className="bg-zinc-900 text-2xl">
+      <div className="px-10 mx-auto">
         <div className="flex justify-between">
           <div className="flex space-x-4">
             <div>
