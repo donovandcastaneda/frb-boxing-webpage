@@ -1,14 +1,14 @@
 import React from "react";
 
-type Coach = {
-  id: number;
-  name: {
-    first: string;
-    last: string;
-  };
-  age: number;
-  status: string;
-}
+// type Coach = {
+//   id: number;
+//   name: {
+//     first: string;
+//     last: string;
+//   };
+//   age: number;
+//   status: string;
+// }
 
 export const Coach = (props: Coach) => {
   return (
