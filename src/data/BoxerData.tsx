@@ -10,31 +10,31 @@ export default [
    {
     name: 'Jocelyn Castaneda',
     imgUrl: '',
-    age: '12',
+    age: '12 years old',
     status: 'Novice'
    }, 
    {
     name: 'Joel Sanchez',
     imgUrl: '',
-    age: '19',
+    age: '19 years old',
     status: 'Open'
    }, 
    {
     name: 'Scott Mcfadden',
     imgUrl: '',
-    age: '20',
+    age: '20 years old',
     status: 'Open'
    }, 
    {
     name: 'Augusta Grace',
     imgUrl: '',
-    age: '26',
+    age: '26 years old',
     status: 'Novice'
    },
    {
     name: 'Mia Andre',
     imgUrl: '',
-    age: '13',
+    age: '13 years old',
     status: 'Novice'
    },
 ];
