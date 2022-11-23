@@ -12,7 +12,7 @@ export function NavBar() {
         <div className="flex-none">
           <ul className="menu menu-horizontal p-2">
             <li>
-              <a>Join</a>
+              <a href="">Join</a>
             </li>
             <li>
               <a>Boxers</a>
