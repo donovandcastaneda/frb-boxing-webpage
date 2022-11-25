@@ -7,7 +7,7 @@ export function GymInfo(){
             <h2><a href ="https://goo.gl/maps/kxCzZfgsedbDUKJP6"> 3308 Strong Ave, Kansas City, KS 66106 </a></h2>
             <h2> Monday - Thursday</h2>
             <h2>6:00pm - 8:00pm </h2>
-            <h2 className="hover:white"><a href ="tel:816-920-1448"> (816)-920-1448</a></h2>
+            <h2 className="hover:white"><a href ="tel:816-920-1448"> (816) 797-8885</a></h2>
         </div>
     )
 }

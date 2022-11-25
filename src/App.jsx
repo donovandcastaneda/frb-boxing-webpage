@@ -5,6 +5,9 @@ import { NavBar } from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Join } from "./pages/Join";
+import { Boxers } from "./pages/Boxers";
+import { Coaches } from "./pages/Coaches";
+import { About } from "./pages/About";
 
 
 const App = () => {
@@ -16,6 +19,9 @@ const App = () => {
       <Routes>
         <Route path = "/home" element = {<Home/>} />
         <Route path = "/join" element = {<Join/>} />
+        <Route path = "/boxers" element = {<Boxers/>} />
+        <Route path = "/coaches" element = {<Coaches/>} />
+        <Route path = "/about" element = {<About/>} />
       </Routes>
       
     </div>
