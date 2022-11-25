@@ -1,10 +1,15 @@
 import React from "react";
 
 
-export function Join (){
-    return(
+
+
+
+
+
+export function About (){
+    return (
         <div>
-            hello
+
         </div>
     )
 }
