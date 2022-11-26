@@ -23,8 +23,8 @@ const App = () => {
         <Route path = "/coaches" element = {<Coaches/>} />
         <Route path = "/about" element = {<About/>} />
       </Routes>
-      
     </div>
+
     </>
   );
 };
