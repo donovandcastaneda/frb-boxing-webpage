@@ -7,12 +7,7 @@ export default [
     age: '19',
     status: 'Open'
    }, 
-   {
-    name: 'Jocelyn Castaneda',
-    imgUrl: '',
-    age: '12 years old',
-    status: 'Novice'
-   }, 
+  , 
    {
     name: 'Joel Sanchez',
     imgUrl: '',
@@ -30,6 +25,12 @@ export default [
     imgUrl: '',
     age: '26 years old',
     status: 'Novice'
+   }, 
+   {
+    name: 'Alex Garcia',
+    imgUrl: '',
+    age: '19 years old',
+    status: 'Novice'
    },
    {
     name: 'Mia Andre',
@@ -37,4 +38,12 @@ export default [
     age: '13 years old',
     status: 'Novice'
    },
+  
+    {
+    name: 'Jocelyn Castaneda',
+    imgUrl: '',
+    age: '13 years old',
+    status: 'Novice'
+   }
+   
 ];

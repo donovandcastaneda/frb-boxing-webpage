@@ -19,17 +19,17 @@ export function NavBar() {
                 <a href="">Join</a>
               </li>
             </NavLink>
-            <NavLink to="/boxers" className="navbar-join">
+            <NavLink to="/boxers" className="navbar-boxer">
               <li>
                 <a>Boxers</a>
               </li>
             </NavLink>
-            <NavLink to="/coaches" className="navbar-join">
+            <NavLink to="/coaches" className="navbar-coaches">
               <li>
                 <a>Coaches</a>
               </li>
             </NavLink>
-            <NavLink to="/about" className="navbar-join">
+            <NavLink to="/about" className="navbar-about">
               <li>
                 <a>About</a>
               </li>

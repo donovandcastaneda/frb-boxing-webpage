@@ -1,18 +1,18 @@
 import React from "react";
+import { BoxerCardInterface } from "../data/Types";
 
-export function BoxerCard(name: string, imgUrl: any, age: number, status: string ) {
+export function BoxerCard({name,imgUrl,age,status,}:BoxerCardInterface) {
   return (
-   <div>
-    <img
-    src = {imgUrl}
-    alt = "Boxer"
-    className="w-full h-36 md:h-48 object-cover cursor-pointer"
-    />
-    <div className="w-full p-4">
-      <h1 className="text-lg md:text-xl mb-2 md:mb-3 ">{name}</h1>
-      <h2>{age}</h2>
-      <h3>{status}</h3>
+    <div className="card w-96 glass m-12">
+    <figure><img src="https://placeimg.com/400/225/arch" alt="car!"/>{imgUrl}</figure>
+    <div className="card-body">
+      <h1 className="card-title flex-col">{name}</h1>
+      <div className="card-actions justify-end">
+      <button className="btn gap-2">age: {age}</button>     
+      <button className="btn gap-2">{status}</button>     
+   
+      </div>
     </div>
-   </div>
+  </div>
   );
 };

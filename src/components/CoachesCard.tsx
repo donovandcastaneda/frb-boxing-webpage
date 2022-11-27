@@ -1,17 +1,16 @@
 import React from "react";
+import { CoachCardInterface } from "../data/Types";
 
-export function CoachCards(name: string, imgUrl: any, title: string) {
+export function CoachCard({name,imgUrl,title}:CoachCardInterface) {
   return (
-    <div>
-      <img
-        src={imgUrl}
-        alt="Coach"
-        className="w-full h-36 md:h-48 object-cover cursor-pointer"
-      />
-      <div className="w-full p-4">
-        <h1 className="text-lg md:text-xl mb-2 md:mb-3 ">{name}</h1>
-        <h2>{title}</h2>
+    <div className="card w-96 glass m-12">
+    <figure><img src="https://placeimg.com/400/225/arch" alt="car!"/>{imgUrl}</figure>
+    <div className="card-body">
+      <h1 className="card-title flex-col">{name}</h1>
+      <div className="card-actions justify-end">
+      <button className="btn gap-2">{title}</button>     
       </div>
     </div>
+  </div>
   );
-}
+};
