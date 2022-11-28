@@ -7,6 +7,7 @@ import { Join } from "./pages/Join";
 import { Boxers } from "./pages/Boxers";
 import { Coaches } from "./pages/Coaches";
 import { About } from "./pages/About";
+import { Home } from "./pages/Home";
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <NavBar/>
     <div className="App">
       <Routes>
+      <Route path = "/home" element = {<Home/>} />
         <Route path = "/join" element = {<Join/>} />
         <Route path = "/boxers" element = {<Boxers/>} />
         <Route path = "/coaches" element = {<Coaches/>} />
