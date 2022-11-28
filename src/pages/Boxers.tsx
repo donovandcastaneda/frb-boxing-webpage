@@ -1,7 +1,7 @@
 import React from "react";
 import { BoxerCard } from "../components/BoxerCards";
 import BoxerData from "../data/BoxerData";
-import { BoxerCardInterface } from "../data/Types";
+
 
 
 export function Boxers() 
