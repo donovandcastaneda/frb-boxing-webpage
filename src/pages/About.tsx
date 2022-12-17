@@ -10,7 +10,7 @@ export function About (){
         {" "}
         About Flaco Ramirez Boxing
       </h1>
-      <p className="py-5 text-2xl">
+      <p className="py-5 text-2xl text-center">
         We are a non-profit looking to serve the community by providing a sanctuary that kids and adults can have a peace of mind away from everything else.{" "}
       </p>
       <p className="py-3 text-2xl">
