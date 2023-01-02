@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function NavBar() {
   return (
     <nav>
-      <div className="navbar bg-base-100 px-7 py-3 text-2xl">
+      <div className="navbar bg-base-100 px-7 py-3 text-2xl ">
         <div className="flex-1">
           <NavLink to="/home" className="navbar-join">
             <a className="btn btn-ghost normal-case text-2xl">

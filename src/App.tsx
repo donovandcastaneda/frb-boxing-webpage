@@ -8,23 +8,25 @@ import { Boxers } from "./pages/Boxers";
 import { Coaches } from "./pages/Coaches";
 import { About } from "./pages/About";
 import { Home } from "./pages/Home";
+import { GymInfo } from "./components/Footer";
+import { ImageSlides } from "./components/ImageSlides";
 
 
 const App = () => {
- 
-  return ( 
+  return (
     <>
-    <NavBar/>
-    <div className="App">
-      <Routes>
-      <Route path = "/home" element = {<Home/>} />
-        <Route path = "/join" element = {<Join/>} />
-        <Route path = "/boxers" element = {<Boxers/>} />
-        <Route path = "/coaches" element = {<Coaches/>} />
-        <Route path = "/about" element = {<About/>} />
-      </Routes>
-    </div>
-
+      <NavBar />
+      <div className="App">
+        
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/boxers" element={<Boxers />} />
+          <Route path="/coaches" element={<Coaches />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+      <GymInfo />
     </>
   );
 };
