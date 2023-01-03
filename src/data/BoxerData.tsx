@@ -4,20 +4,20 @@ import { BoxerCardInterface } from "./Types";
 export default [
   {
     name: "Jake Stiers",
-    imgUrl: "src/pictures/Jake.jpg",
+    imgUrl: "src/pictures/jake.jpg",
     age: "18",
     status: "Professional",
   },
   {
     name: "Natalia Castaneda",
-    imgUrl: "src/pictures/Natalia.jpg",
+    imgUrl: "src/pictures/natalia.jpg",
     age: "19",
     status: "Open",
   },
 
   {
     name: "Joel Sanchez",
-    imgUrl: "src/pictures/Joel.jpg",
+    imgUrl: "src/pictures/joel.jpg",
     age: "19",
     status: "Open",
   },
@@ -29,19 +29,19 @@ export default [
   },
   {
     name: "Augusta Grace",
-    imgUrl: "src/pictures/Augusta.jpg",
+    imgUrl: "src/pictures/augusta.jpg",
     age: "26 ",
     status: "Novice",
   },
   {
     name: "Alex Garcia",
-    imgUrl: "src/pictures/Alex.jpg",
+    imgUrl: "src/pictures/alex.jpg",
     age: "20",
     status: "Novice",
   },
   {
     name: "Mia Andre",
-    imgUrl: "src/pictures/Mia.jpg",
+    imgUrl: "src/pictures/mia.jpg",
     age: "13",
     status: "Novice",
   }, 

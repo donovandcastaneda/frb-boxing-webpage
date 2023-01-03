@@ -8,12 +8,12 @@ export default [
     },
     {
         name: 'Donovan Castaneda Sr',
-        imgUrl:'src/pictures/DonovanSr.jpg',
+        imgUrl:'src/pictures/donovansr.jpg',
         title:'Owner / Head-Coach'
     },
     {
         name: 'Paul',
-        imgUrl:'src/pictures/Paul.jpg',
+        imgUrl:'src/pictures/paul.jpg',
         title:'Head-Coach'
     },
     
@@ -24,7 +24,7 @@ export default [
     },
     {
         name: 'Jake Stiers Sr',
-        imgUrl:'src/pictures/JakeSr.jpg',
+        imgUrl:'src/pictures/jakesr.jpg',
         title:'Profession / Open Coach'
     },
     {
