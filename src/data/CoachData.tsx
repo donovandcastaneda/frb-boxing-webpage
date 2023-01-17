@@ -3,33 +3,33 @@ import React from "react";
 export default [  
     {
         name: 'Marcos Ramirez',
-        imgUrl:'src/pictures/.jpg',
+        imgUrl:'/assets/blank-profile-picture.png',
         title:'Owner / Part-Time Coach'
     },
     {
         name: 'Donovan Castaneda Sr',
-        imgUrl:'src/pictures/donovansr.jpg',
+        imgUrl:'/assets/donovansr.jpg',
         title:'Owner / Head-Coach'
     },
     {
         name: 'Paul',
-        imgUrl:'src/pictures/paul.jpg',
+        imgUrl:'/assets/paul.jpg',
         title:'Head-Coach'
     },
     
     {
         name: 'Junior Solis',
-        imgUrl:'',
+        imgUrl:'/assets/blank-profile-picture.png',
         title:'Coach'
     },
     {
         name: 'Jake Stiers Sr',
-        imgUrl:'src/pictures/jakesr.jpg',
+        imgUrl:'/assets/jakesr.jpg',
         title:'Profession / Open Coach'
     },
     {
         name: 'Jorge',
-        imgUrl:'src/pictures/.jpg',
+        imgUrl:'/assets/blank-profile-picture.png',
         title:'Part-Time Coach'
     },
 ]
