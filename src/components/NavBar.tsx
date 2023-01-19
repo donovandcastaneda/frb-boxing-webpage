@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 
 export function NavBar() {
   return (
+    
     <nav>
       <div className="navbar bg-base-100    ">
         <div className="flex-1">
-          <NavLink to="/home" className="navbar-join">
+          <NavLink to="/" className="navbar-join">
             <a className="btn btn-ghost normal-case text-base md:text-2xl ">
               Flaco Ramirez Boxing
             </a>
