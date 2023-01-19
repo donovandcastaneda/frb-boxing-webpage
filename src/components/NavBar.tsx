@@ -58,6 +58,11 @@ export function NavBar() {
               tabIndex={0}
               className=" dropdown-content menu p-2 shadow bg-base-200 rounded-box w-52 "
             >
+              <NavLink to="/" className="navbar-home">
+              <li>
+                <a>Home</a>
+              </li>
+            </NavLink>
               <NavLink to="/join" className="navbar-join">
               <li>
                 <a>Join</a>
