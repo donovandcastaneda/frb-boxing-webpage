@@ -4,8 +4,11 @@ import { ImageSlides } from "../components/ImageSlides";
 
 export function Home(){
     return(
+        <div className="pb-96">
         <>
         <ImageSlides />
+
         </>
+        </div>
     )
 }

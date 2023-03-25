@@ -4,7 +4,7 @@ export function About() {
   return (
     <div>
       <body>
-        <div className="flex flex-col md: flex-rows items-center justify-center mx-10 ">
+        <div className="flex flex-col md: flex-rows items-center justify-center mx-10 pb-14">
           <h1 className=" py-5  text-2xl md:text-3xl"> About Flaco Ramirez Boxing</h1>
           <div className="space-y-11 text-lg md:text-2xl">
           <p className="  text-center ">
