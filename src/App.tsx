@@ -8,7 +8,7 @@ import { Coaches } from "./pages/Coaches";
 import { About } from "./pages/About";
 import { Home } from "./pages/Home";
 import { GymInfo } from "./components/Footer";
-import { ImageSlides } from "./components/ImageSlides";
+import { Events } from "./pages/Events";
 
 const App = () => {
   return (
@@ -19,6 +19,8 @@ const App = () => {
         <Route path="/join" element={<Join />} />
         <Route path="/boxers" element={<Boxers />} />
         <Route path="/coaches" element={<Coaches />} />
+        <Route path="/events" element={<Events />} />
+
         <Route path="/about" element={<About />} />
       </Routes>
       <GymInfo />

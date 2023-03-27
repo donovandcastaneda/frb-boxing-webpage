@@ -35,6 +35,11 @@ export function NavBar() {
                 <a>Coaches</a>
               </li>
             </NavLink>
+            <NavLink to="/events" className="navbar-events">
+              <li>
+                <a>Events</a>
+              </li>
+            </NavLink>
             <NavLink to="/about" className="navbar-about">
               <li>
                 <a>About</a>

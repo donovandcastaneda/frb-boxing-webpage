@@ -13,3 +13,10 @@ export interface CoachCardInterface {
   imgUrl: any;
   title: string;
 }
+export interface EventCardInterface {
+  imgUrl:any;
+  title:string;
+  date:Date;
+  description:string;
+  location: string;
+}

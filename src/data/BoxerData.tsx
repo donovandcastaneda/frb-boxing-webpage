@@ -1,5 +1,5 @@
 import React from "react";
-import { BoxerCardInterface } from "../../types/Types";
+import { BoxerCardInterface } from "../types/Types";
 
 export default [
   {

@@ -4,10 +4,15 @@ import FrbLogo from "/icons/frblogo.svg";
 
 export function GymInfo() {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content ">
+    <footer className="footer p-10 bg-neutral text-neutral-content  ">
       <div>
         <img src={FrbLogo} alt="Frb Logo" className="filter grayscale" />
+        <p className="text-sm mt-2  opacity-50">
+          &copy; {new Date().getFullYear()} Flaco Ramiez Boxing. All rights
+          reserved.
+        </p>
       </div>
+
       <div>
         <span className="footer-title">Information</span>
         <h2 className="hover:text-white">
@@ -36,6 +41,9 @@ export function GymInfo() {
         <NavLink to="/coaches" className="navbar-coaches">
           <a className="link link-hover">Coaches</a>
         </NavLink>
+        <NavLink to="/events" className="navbar-events">
+          <a className="link link-hover">Events</a>
+        </NavLink>
         <NavLink to="/about" className="navbar-about">
           <a className="link link-hover">About</a>
         </NavLink>
@@ -43,10 +51,7 @@ export function GymInfo() {
       <div>
         <span className="footer-title ">Social</span>
         <div className="grid grid-flow-col gap-4">
-          <a
-            href="https://www.facebook.com/flacoramirezboxing"
-            
-          >
+          <a href="https://www.facebook.com/flacoramirezboxing">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -57,7 +62,7 @@ export function GymInfo() {
               <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
             </svg>
           </a>
-          <a href="https://www.instagram.com/frbboxing/" >
+          <a href="https://www.instagram.com/frbboxing/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
