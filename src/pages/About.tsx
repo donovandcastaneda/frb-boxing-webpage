@@ -4,18 +4,18 @@ export function About() {
   return (
     <div>
       <body>
-        <div className="flex flex-col md: flex-rows items-center justify-center mx-10 pb-14">
-          <h1 className=" py-5  text-2xl md:text-3xl"> About Flaco Ramirez Boxing</h1>
-          <div className="space-y-11 text-lg md:text-2xl">
-          <p className="  text-center ">
+        <div className="flex flex-col md: flex-rows items-center justify-center mx-10 pb-96">
+          <h1 className=" py-5  text-center text-3xl md:text-3xl"> About Flaco Ramirez Boxing</h1>
+          <div className="   space-y-11 text-xl text-center sm:px-8  lg:px-96">
+          <p className="   ">
             Welcome to Flaco Ramirez Boxing Gym, the premier boxing facility in
             Kansas City, Missouri. Our gym is dedicated to helping boxers of all
             levels achieve their full potential in the sport.{" "}
           </p>
           <p className=" ">
-            Founded by former professional boxer and current head coach, Flaco
-            Ramirez, the gym has quickly become a staple in the Kansas City
-            boxing community. Flaco brings a wealth of knowledge and experience
+            Founded by former professional boxers and current head coaches, Flaco
+            Ramirez and Donovan Castaneda Sr. The gym has quickly become a staple in the Kansas City
+            boxing community. Flaco and Donovan brings a wealth of knowledge and experience
             to the gym, having competed at the highest levels of the sport and
             worked with some of the best trainers in the world.{" "}
           </p>
@@ -25,7 +25,7 @@ export function About() {
             top-notch instruction in the fundamentals of boxing, including
             footwork, defense, and offense. We also offer specialized training
             for amateur and professional fighters looking to take their skills
-            to the next level.a.{" "}
+            to the next level.{" "}
           </p>
           <p className="">
             In addition to our traditional boxing classes, we also offer fitness

@@ -1,6 +1,5 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-import FrbLogo from "/icons/frblogo.svg";
+import FrbLogo from "/assets/frblogo.svg";
 
 export function GymInfo() {
   return (

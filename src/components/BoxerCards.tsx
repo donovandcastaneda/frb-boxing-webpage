@@ -1,4 +1,3 @@
-import React from "react";
 import { BoxerCardInterface } from "../types/Types";
 
 export function BoxerCard({ name, imgUrl, age, status }: BoxerCardInterface) {

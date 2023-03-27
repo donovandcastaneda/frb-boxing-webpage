@@ -1,4 +1,3 @@
-import React from "react";
 import { CoachCardInterface } from "../types/Types";
 
 export function CoachCard({ name, imgUrl, title }: CoachCardInterface) {

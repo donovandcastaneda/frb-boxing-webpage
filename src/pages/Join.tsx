@@ -18,8 +18,12 @@ export function Join() {
           <li className="list-decimal">Must Listen to the Coaches</li>
           <li className="list-decimal">Must Be Responsible and Focused</li>
         </ol>
+        <p className="pt-7">
+          Intial Cost + 1st Month: 100$ <br>
+          </br> 60$ per Month after
+        </p>
         <p className="pt-4">
-          If you or your child are okay with the requirements, come to the Gym
+          If you and your child are okay with the requirements, come to the Gym
           at{" "}
           <a
             href="https://goo.gl/maps/kxCzZfgsedbDUKJP6"
@@ -29,7 +33,9 @@ export function Join() {
             3308 Strong Ave, Kansas City, KS 66106
           </a>
         </p>
-        <p className="">Between 6-8pm, Monday-Thursday </p>
+        <p className="">between 6-8pm, Monday-Thursday to sign up. </p>
+        <br></br>
+        <p> if there are anymore questions, contact our Facebook page</p>
         
       </div>
     </div>
