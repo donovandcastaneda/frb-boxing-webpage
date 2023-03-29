@@ -38,7 +38,6 @@ export function EventCard({
 
   // card section
   return (
-    <div className="pb-96">
       <div className="p-7">
         <div className="card glass lg:card-side bg-base-100 shadow-xl ">
           <figure className="">
@@ -62,6 +61,5 @@ export function EventCard({
           </div>
         </div>
       </div>
-    </div>
   );
 }
