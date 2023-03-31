@@ -4,3 +4,21 @@
 @tailwind utilities;
 
 
+  div.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 375px;
+  }
+
+  
+  .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .card-past {
+    order: 999; 
+  }
+

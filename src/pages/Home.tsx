@@ -1,20 +1,21 @@
 import { HomeEventCards } from "../components/HomeEventCard";
 import EventData from "../data/EventData";
 
-export function Home(){
-    return(
-        <div className="pb-96">
-             {EventData.map(h_events => (
-                <HomeEventCards
-                    title={h_events.title}
-                    imgUrl={h_events.imgSrc}
-                    date={new Date(h_events.date)} 
-                    description={h_events.description}
-                    location={h_events.location}              
-                />
-            ))
-
-            }
-        </div>
-    )
+export function Home() {
+  return (
+    <div className="relative min-h-screen">
+      <div className="">
+        <img src = "/assets/black.jpg" className="w-full object-center"></img>
+      </div>
+      <div className="absolute bottom-0 w-full">
+        <HomeEventCards
+          imgUrl={undefined}
+          title={""}
+          description={""}
+          location={""}
+          date={new Date()}
+        />
+      </div>
+    </div>
+  );
 }
