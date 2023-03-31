@@ -13,7 +13,9 @@ export function NavBar() {
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <NavLink to="/" className="navbar">
+            
             <a className="btn btn-ghost normal-case text-base md:text-2xl ">
+              <img src = "./favicon.ico" className="pr-3"></img>
               Flaco Ramirez Boxing
             </a>
           </NavLink>

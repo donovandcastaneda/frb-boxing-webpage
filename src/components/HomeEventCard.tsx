@@ -63,9 +63,7 @@ export function HomeEventCards({
   return (
     <div>
       <div className=" flex justify-center items-center">
-        <title className="text-2xl  lg:text-3xl font-bold mb-4 flex items-center">
-          Events
-        </title>
+       
       </div>
       <Swiper
         navigation

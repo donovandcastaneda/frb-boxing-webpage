@@ -5,9 +5,9 @@ export function Home() {
   return (
     <div className="relative min-h-screen">
       <div className="">
-        <img src = "/assets/black.jpg" className="w-full object-center"></img>
+        <img src = "" className="w-full h-full object-center object-cover"></img>
       </div>
-      <div className="absolute bottom-0 w-full">
+      <div className="absolute bottom-60 w-full">
         <HomeEventCards
           imgUrl={undefined}
           title={""}
