@@ -1,7 +1,7 @@
 import { HomeEventCards } from "../components/HomeEventCard";
 import EventData from "../data/EventData";
 
-export default function Home() {
+export function Home() {
   return (
     <div className="relative min-h-screen">
       <div className="w-full h-full">
