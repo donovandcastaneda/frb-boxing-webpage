@@ -3,7 +3,7 @@ import { BoxerCard } from "../components/BoxerCards";
 
 export function Join() {
   return (
-    <div className="flex flex-col md: flex-rows text-center justify-center mx-10 pb-96">
+    <div className="flex flex-col md: flex-rows text-center justify-center mx-10 pb-[450px]">
       <h1 className="text-xl md:text-3xl">
         {" "}
         Wanting to Join Flaco Ramirez Boxing?
