@@ -98,7 +98,7 @@ export function NavBar() {
                 </NavLink>
                 <NavLink to="/events" className="navbar-events">
                   <li>
-                    <a onClick={toggleMenu}>About</a>
+                    <a onClick={toggleMenu}>Events</a>
                   </li>
                 </NavLink>
                 <NavLink to="/about" className="navbar-about">
