@@ -46,6 +46,9 @@ export function GymInfo() {
         <NavLink to="/about" className="navbar-about">
           <a className="link link-hover">About</a>
         </NavLink>
+        <NavLink to="/login" className="">
+          <a className="link link-hover">Login</a>
+        </NavLink>
       </div>
       <div>
         <span className="footer-title ">Social</span>
