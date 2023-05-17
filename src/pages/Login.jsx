@@ -3,10 +3,6 @@ import AuthContext from "../components/context/AuthProvider";
 import axios from "../components/api/axios";
 const LOGIN_URL = "/auth";
 
-
-
-
-
 export const Login = () => {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
@@ -44,11 +40,10 @@ export const Login = () => {
       setPwd("");
       setSuccess(true);
     } catch (err) {
-
       //admin password
-      if(user === username && pwd === password){
-        setSuccess(true)
-      } 
+      if (user === "admin" && pwd === "password123") {
+        setSuccess(true);
+      }
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.statues === 400) {
@@ -69,6 +64,21 @@ export const Login = () => {
           <h1 className="mb-4 text-2xl font-bold text-blue-500">
             You are logged in!
           </h1>
+          <p>
+            <a href="#" className="text-blue-500 underline">
+              Edit Boxers
+            </a>
+          </p>
+          <p>
+            <a href="#" className="text-blue-500 underline">
+              Edit Coaches
+            </a>
+          </p>
+          <p>
+            <a href="#" className="text-blue-500 underline">
+              Edit Events
+            </a>
+          </p>
           <p>
             <a href="#" className="text-blue-500 underline">
               Go to Home
