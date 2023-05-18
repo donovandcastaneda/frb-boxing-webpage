@@ -1,6 +1,4 @@
 import { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../components/context/AuthProvider";
-import axios from "../components/api/axios";
 const LOGIN_URL = "/auth";
 
 export const Login = () => {

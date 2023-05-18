@@ -12,41 +12,28 @@ export function NavBar() {
     <nav>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <NavLink to="/" className="navbar">
-            
-            <a className="btn btn-ghost normal-case text-base md:text-2xl ">
-              <img src = "./favicon.ico" className="pr-3"></img>
-              Flaco Ramirez Boxing
-            </a>
+          <NavLink to="/" className="btn btn-ghost normal-case text-base md:text-2xl navbar">
+            <img src="./favicon.ico" className="pr-3" alt="favicon" />
+            Flaco Ramirez Boxing
           </NavLink>
         </div>
         <div className="flex-none ">
-          <ul className=" menu menu-horizontal p-4 text-2xl hidden w-full md:flex    ">
-            <NavLink to="/join" className="navbar-join">
-              <li>
-                <a href="">Join</a>
-              </li>
-            </NavLink>
-            <NavLink to="/boxers" className="navbar-boxers">
-              <li>
-                <a>Boxers</a>
-              </li>
-            </NavLink>
-            <NavLink to="/coaches" className="navbar-coaches">
-              <li>
-                <a>Coaches</a>
-              </li>
-            </NavLink>
-            <NavLink to="/events" className="navbar-events">
-              <li>
-                <a>Events</a>
-              </li>
-            </NavLink>
-            <NavLink to="/about" className="navbar-about">
-              <li>
-                <a>About</a>
-              </li>
-            </NavLink>
+          <ul className="menu menu-horizontal p-4 text-2xl hidden w-full md:flex">
+            <li>
+              <NavLink to="/join" className="navbar-join">Join</NavLink>
+            </li>
+            <li>
+              <NavLink to="/boxers" className="navbar-boxers">Boxers</NavLink>
+            </li>
+            <li>
+              <NavLink to="/coaches" className="navbar-coaches">Coaches</NavLink>
+            </li>
+            <li>
+              <NavLink to="/events" className="navbar-events">Events</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className="navbar-about">About</NavLink>
+            </li>
           </ul>
           <div className="dropdown dropdown-bottom dropdown-end  outline-white">
             <div className="md:hidden">
@@ -76,36 +63,36 @@ export function NavBar() {
                   menuOpen ? "" : "hidden"
                 }`}
               >
-                <NavLink to="/" className="navbar-home">
-                  <li>
-                    <a onClick={toggleMenu}>Home</a>
-                  </li>
-                </NavLink>
-                <NavLink to="/join" className="navbar-join">
-                  <li>
-                    <a onClick={toggleMenu}>Join</a>
-                  </li>
-                </NavLink>
-                <NavLink to="/boxers" className="navbar-boxers">
-                  <li>
-                    <a onClick={toggleMenu}>Boxers</a>
-                  </li>
-                </NavLink>
-                <NavLink to="/coaches" className="navbar-coaches">
-                  <li>
-                    <a onClick={toggleMenu}>Coaches</a>
-                  </li>
-                </NavLink>
-                <NavLink to="/events" className="navbar-events">
-                  <li>
-                    <a onClick={toggleMenu}>Events</a>
-                  </li>
-                </NavLink>
-                <NavLink to="/about" className="navbar-about">
-                  <li>
-                    <a onClick={toggleMenu}>About</a>
-                  </li>
-                </NavLink>
+                <li>
+                  <NavLink to="/" className="navbar-home" onClick={toggleMenu}>
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/join" className="navbar-join" onClick={toggleMenu}>
+                    Join
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/boxers" className="navbar-boxers" onClick={toggleMenu}>
+                    Boxers
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/coaches" className="navbar-coaches" onClick={toggleMenu}>
+                    Coaches
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/events" className="navbar-events" onClick={toggleMenu}>
+                    Events
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/about" className="navbar-about" onClick={toggleMenu}>
+                    About
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

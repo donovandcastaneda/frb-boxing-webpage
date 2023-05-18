@@ -1,5 +1,6 @@
 import express from "express";
 import mysql2 from "mysql2";
+import cors from "cors";
 
 const app = express();
 
@@ -18,15 +19,12 @@ app.get("/boxers", (req, res) => {
   });
 });
 
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 app.post("/boxers", (req, res) => {
   const q = "INSERT INTO boxers (`name`,`desc`,`image`) VALUES (?)";
-  const values = [
-    req.body.name,
-    req.body.desc,
-    req.body.image
-  ]
+  const values = [req.body.name, req.body.desc, req.body.image];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json(err);
