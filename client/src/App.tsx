@@ -16,8 +16,7 @@ import { AddBoxers } from "./pages/AddBoxer";
 const App = () => {
 
 
-  return (
-    <>
+  return (<>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -31,8 +30,7 @@ const App = () => {
         <Route path="/crudCoaches" element={<CrudCoaches/>}/>
         <Route path="/crudEvents" element={<CrudEvents/>}/>
       </Routes>
-      <GymInfo />
-    </>
+      <GymInfo /></>
   );
 };
 

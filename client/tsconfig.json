@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/types/Types.tsx"],
+  "include": ["src", "src/types/Types.tsx", "src/context/AuthContext.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
