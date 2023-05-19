@@ -2,21 +2,21 @@ import React from "react";
 
 export interface BoxerCardInterface {
   name: string;
-  imgUrl: any;
+  image: any;
   age: any;
-  status: string;
+  desc: string;
 }
 
 
 export interface CoachCardInterface {
   name: string;
-  imgUrl: any;
-  title: string;
+  image: any;
+  desc: string;
 }
 export interface EventCardInterface {
-  imgUrl:any;
-  title:string;
+  image:any;
+  name:string;
   date:Date;
-  description:string;
+  desc:string;
   location: string;
 }

@@ -9,9 +9,9 @@ import { Home } from "./pages/Home";
 import { GymInfo } from "./components/Footer";
 import { Events } from "./pages/Events";
 import  { Login }  from "./pages/Login";
-import { CrudEvents } from "./pages/CrudEvents";
-import { CrudCoaches } from "./pages/CrudCoaches";
-import { CrudBoxers } from "./pages/CrudBoxers";
+import { CrudEvents } from "./pages/AddEvents";
+import { CrudCoaches } from "./pages/AddCoaches";
+import { AddBoxers } from "./pages/AddBoxer";
 
 const App = () => {
 
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login/>}/>
-        <Route path="/crudBoxers" element={<CrudBoxers/>}/>
+        <Route path="/AddBoxers" element={<AddBoxers/>}/>
         <Route path="/crudCoaches" element={<CrudCoaches/>}/>
         <Route path="/crudEvents" element={<CrudEvents/>}/>
       </Routes>

@@ -2,10 +2,10 @@ import  { useEffect, useState } from "react";
 import { EventCardInterface } from "../types/Types";
 
 export function EventCard({
-  title,
-  imgUrl,
+  name,
+  image,
   date,
-  description,
+  desc,
   location,
 }: EventCardInterface) {
 
@@ -42,16 +42,16 @@ export function EventCard({
         <div className="card glass lg:card-side bg-base-100 shadow-xl ">
           <figure className="">
             <img
-              src={imgUrl}
+              src={image}
               alt="Event"
               className="object-cover w-full h-full"
             />
           </figure>
           <div className="card-body">
-            <h1 className="card-title">{title}</h1>
+            <h1 className="card-title">{name}</h1>
             <h2 className="">{location}</h2>
             <h2 className="">{new Date(date).toDateString()}</h2>
-            <p className="max-w-[265px] break-words">{description}</p>
+            <p className="max-w-[265px] break-words">{desc}</p>
             {timeRemaining === 0 ? (
               <p>The event has passed.</p>
             ) : (
