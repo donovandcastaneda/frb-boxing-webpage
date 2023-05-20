@@ -19,19 +19,19 @@ export function NavBar() {
         </div>
         <div className="flex-none ">
           <ul className="menu menu-horizontal p-4 text-2xl hidden w-full md:flex">
-            <li>
+            <li className="pr-4">
               <NavLink to="/join" className="navbar-join">Join</NavLink>
             </li>
-            <li>
+            <li className="pr-4">
               <NavLink to="/boxers" className="navbar-boxers">Boxers</NavLink>
             </li>
-            <li>
+            <li className="pr-4">
               <NavLink to="/coaches" className="navbar-coaches">Coaches</NavLink>
             </li>
-            <li>
+            <li className="pr-4">
               <NavLink to="/events" className="navbar-events">Events</NavLink>
             </li>
-            <li>
+            <li className="pr-4">
               <NavLink to="/about" className="navbar-about">About</NavLink>
             </li>
           </ul>

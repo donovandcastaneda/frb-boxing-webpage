@@ -10,8 +10,11 @@ const db = mysql2.createConnection({
   password: "June1$t61",
   database: "frb",
 });
+
 app.use(express.json());
 app.use(cors());
+
+
 
 app.get("/boxers", (req, res) => {
   const q = "SELECT * FROM frb.boxers";
@@ -20,6 +23,8 @@ app.get("/boxers", (req, res) => {
     return res.json(data);
   });
 });
+
+
 
 app.post("/boxers", (req, res) => {
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
@@ -31,15 +36,31 @@ app.post("/boxers", (req, res) => {
   });
 });
 
-app.delete("/boxers/:id",(req,res)=>{
-  const boxerId = req.params.id;
-  const q = "DELETE FROM boxers WHERE id = ?"
 
-  db.query(q, [boxerId], (err,data)=>{
+
+app.delete("/boxers/:id", (req, res) => {
+  const boxerId = req.params.id;
+  const q = "DELETE FROM boxers WHERE id = ?";
+
+  db.query(q, [boxerId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Boxer has been deleted.");
-  })
-})
+  });
+});
+
+
+
+app.put("/boxers/:id", (req, res) => {
+  const boxerId = req.params.id;
+  const q = "UPDATE boxers SET `name`= ?, `desc`= ?, `image`= ?, `age`= ? WHERE id = ?";
+  const values = [req.body.name, req.body.desc, req.body.image, req.body.age];
+
+  db.query(q, [...values, boxerId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Boxer has been updated.");
+  });
+});
+
 
 
 app.listen(8800, () => {

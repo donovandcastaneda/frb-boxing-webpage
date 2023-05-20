@@ -8,15 +8,15 @@ import { About } from "./pages/About";
 import { Home } from "./pages/Home";
 import { GymInfo } from "./components/Footer";
 import { Events } from "./pages/Events";
-import  { Login }  from "./pages/Login";
-import { CrudEvents } from "./pages/AddEvents";
-import { CrudCoaches } from "./pages/AddCoaches";
-import { AddBoxers } from "./pages/AddBoxer";
+import { Login } from "./pages/Login";
+import { AddBoxers } from "./pages/AddBoxers";
+import AddCoaches from "./pages/AddCoaches";
+import AddEvents from "./pages/AddEvents";
+import UpdateBoxers from "./pages/UpdateBoxer";
 
 const App = () => {
-
-
-  return (<>
+  return (
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,12 +25,14 @@ const App = () => {
         <Route path="/coaches" element={<Coaches />} />
         <Route path="/events" element={<Events />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/AddBoxers" element={<AddBoxers/>}/>
-        <Route path="/crudCoaches" element={<CrudCoaches/>}/>
-        <Route path="/crudEvents" element={<CrudEvents/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/AddBoxers" element={<AddBoxers />} />
+        <Route path="/AddCoaches" element={<AddCoaches />} />
+        <Route path="/AddEvents" element={<AddEvents />} />
+        <Route path="/UpdateBoxers/:id" element={<UpdateBoxers />} />
       </Routes>
-      <GymInfo /></>
+      <GymInfo />
+    </>
   );
 };
 
