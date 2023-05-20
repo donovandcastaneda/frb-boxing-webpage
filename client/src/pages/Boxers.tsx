@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { BoxerCard } from "../components/BoxerCards";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 type Boxer = {
   id: number;
@@ -49,9 +50,19 @@ export const Boxers = () => {
               age={boxer.age}
             />
             {auth.user && (
-              <button onClick={() => handleDelete(boxer.id)} className="delete">
-                Delete
-              </button>
+              <>
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => handleDelete(boxer.id)}
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
+                  >
+                    Delete
+                  </button>
+                  <button className="bg-white text-gray-500 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
+                    <Link to={`/UpdateBoxers/${boxer.id}`}>Update</Link>
+                  </button>
+                </div>
+              </>
             )}
           </div>
         ))}

@@ -65,22 +65,22 @@ export const Login = () => {
             You are logged in!
           </h1>
           <p>
-            <Link to="/crudBoxers" className="text-blue-500 underline">
-              Edit Boxers
+            <Link to="/AddBoxers" className="text-blue-500 underline">
+              Add Boxers
             </Link>
           </p>
           <p>
-            <Link to="/crudCoaches" className="text-blue-500 underline">
-              Edit Coaches
+            <Link to="/AddCoaches" className="text-blue-500 underline">
+              Add Coaches
             </Link>
           </p>
           <p>
-            <Link to="/crudEvents" className="text-blue-500 underline">
-              Edit Events
+            <Link to="/AddEvents" className="text-blue-500 underline">
+              Add Events
             </Link>
           </p>
           <p>
-            <a href="#" className="text-blue-500 underline">
+            <a href="/" className="text-blue-500 underline">
               Go to Home
             </a>
           </p>
