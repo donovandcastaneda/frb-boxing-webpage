@@ -120,9 +120,9 @@ app.get("/events", (req, res) => {
 
 
 
-app.post("/coaches", (req, res) => {
-  const q = "INSERT INTO events (`name`,`desc`,`image`,`date`) VALUES (?)";
-  const values = [req.body.name, req.body.desc, req.body.image, req.body.date];
+app.post("/events", (req, res) => {
+  const q = "INSERT INTO events (`name`,`desc`,`image`,`date`,`location`) VALUES (?)";
+  const values = [req.body.name, req.body.desc, req.body.image, req.body.date, req.body.location];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json(err);
@@ -134,23 +134,23 @@ app.post("/coaches", (req, res) => {
 
 app.delete("/events/:id", (req, res) => {
   const eventId = req.params.id;
-  const q = "DELETE FROM coaches WHERE id = ?";
+  const q = "DELETE FROM events WHERE id = ?";
 
   db.query(q, [eventId], (err, data) => {
     if (err) return res.json(err);
-    return res.json("Coach has been deleted.");
+    return res.json("Event has been deleted.");
   });
 });
 
 
-app.put("/coaches/:id", (req, res) => {
-  const coachId = req.params.id;
-  const q = "UPDATE coaches SET `name`= ?, `desc`= ?, `image`= ?,`date`= ?  WHERE id = ?";
-  const values = [req.body.name, req.body.desc, req.body.date];
+app.put("/events/:id", (req, res) => {
+  const eventId = req.params.id;
+  const q = "UPDATE events SET `name`= ?, `desc`= ?, `image`= ?,`date`= ?,`location`= ?  WHERE id = ?";
+  const values = [req.body.name, req.body.desc, req.body.image, req.body.date, req.body.location];
 
-  db.query(q, [...values, coachId], (err, data) => {
+  db.query(q, [...values, eventId], (err, data) => {
     if (err) return res.json(err);
-    return res.json("Coach has been updated.");
+    return res.json("Event has been updated.");
   });
 });
 

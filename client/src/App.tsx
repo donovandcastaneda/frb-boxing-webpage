@@ -13,6 +13,8 @@ import { AddBoxers } from "./pages/AddBoxers";
 import AddCoaches from "./pages/AddCoaches";
 import AddEvents from "./pages/AddEvents";
 import UpdateBoxers from "./pages/UpdateBoxer";
+import UpdateCoaches from "./pages/UpdateCoach";
+import UpdateEvents from "./pages/UpdateEvent";
 
 const App = () => {
   return (
@@ -30,6 +32,10 @@ const App = () => {
         <Route path="/AddCoaches" element={<AddCoaches />} />
         <Route path="/AddEvents" element={<AddEvents />} />
         <Route path="/UpdateBoxers/:id" element={<UpdateBoxers />} />
+        <Route path="/UpdateCoaches/:id" element={<UpdateCoaches />} />
+        <Route path="/UpdateEvents/:id" element={<UpdateEvents />} />
+
+
       </Routes>
       <GymInfo />
     </>
