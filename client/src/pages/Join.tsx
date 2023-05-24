@@ -4,38 +4,34 @@ import { BoxerCard } from "../components/BoxerCards";
 export function Join() {
   return (
     <div className="flex flex-col md: flex-rows text-center justify-center mx-10 pb-[450px]">
-      <h1 className="text-xl md:text-3xl">
-        {" "}
-        Wanting to Join Flaco Ramirez Boxing?
+       <h1 className="join-heading text-xl md:text-3xl">
+        Interested in Joining Flaco Ramirez Boxing Club?
       </h1>
       <div className="flex flex-col text-lg md:text-2xl flex-rows items-center justify-center ">
-        <p className="py-5 ">
-          Flaco Ramiez Boxing provides a community of supportive indivduals and
-          coaches but with that comes requirement members must meet to join.{" "}
+      <p className="join-intro py-5 ">
+          Flaco Ramirez Boxing offers a supportive community of individuals and experienced coaches. We have some requirements that all members must meet:
         </p>
-        <ol className=" space-y-2">
-          <li className="list-decimal">Must be 8 Years Old and Above</li>
-          <li className="list-decimal">Must Listen to the Coaches</li>
-          <li className="list-decimal">Must Be Responsible and Focused</li>
+        <ol className="join-requirements space-y-2">
+          <li className="list-decimal">Minimum age requirement: 8 Years</li>
+          <li className="list-decimal">Adherence to coach instructions</li>
+          <li className="list-decimal">Demonstrate responsibility and focus</li>
         </ol>
-        <p className="pt-7">
-          Intial Cost + 1st Month: 100$ <br>
-          </br> 60$ per Month after
+        <p className="join-cost pt-7">
+          Initial Cost + First Month: $100 <br />
+          $60 per Month thereafter
         </p>
-        <p className="pt-4">
-          If you and your child are okay with the requirements, come to the Gym
-          at{" "}
+        <p className="join-address pt-4">
+          If you and your child meet our requirements, visit our Gym at{" "}
           <a
             href="https://goo.gl/maps/kxCzZfgsedbDUKJP6"
-            className="hover:text-white"
+            className="address-link hover:text-white"
           >
-            {" "}
             3308 Strong Ave, Kansas City, KS 66106
           </a>
         </p>
-        <p className="">between 6-8pm, Monday-Thursday to sign up. </p>
+        <p className="join-times">We're open for sign ups from 6-8pm, Monday-Thursday.</p>
         <br></br>
-        <p> if there are anymore questions, contact our Facebook page</p>
+        <p className="join-contact">For further inquiries, please contact us via our Facebook page.</p>
         
       </div>
     </div>

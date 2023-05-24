@@ -96,7 +96,7 @@ export const AddBoxers = () => {
             </label>
             <input
               id="image"
-              type="text"
+              type="file"
               placeholder="image"
               name="image"
               required
