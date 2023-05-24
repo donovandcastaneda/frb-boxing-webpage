@@ -2,31 +2,50 @@ import { EventCardInterface } from "../types/Types";
 import { Key, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
-import EventData from "../data/EventData";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import axios from "axios";
+
+type HomeEventCards = {
+  id: number;
+  image: any;
+  name: string;
+  desc: string;
+  date: Date;
+  location: string;
+};
 
 SwiperCore.use([Navigation, Pagination]);
 
-export function HomeEventCards({
-  title,
-  imgUrl,
-  date,
-  description,
-  location,
-}: EventCardInterface) {
+export function HomeEventCards() {
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
+
+  const [eventsData, setEventsData] = useState<HomeEventCards[]>([]);
+
+  useEffect(() => {
+    // fetch events from your server
+    const fetchEvents = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/events");
+        setEventsData(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const eventDate = new Date(date);
+      const eventDate = new Date();
       const timeLeft = Math.max(eventDate.getTime() - new Date().getTime(), 0);
       setTimeRemaining(timeLeft);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [date]);
+  }, [Date]);
 
   const formatTime = (time: number) => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -56,15 +75,13 @@ export function HomeEventCards({
   const currentDate = new Date();
 
   // Sort events by date
-  const sortedEventData = [...EventData].sort(
+  const sortedEventData = [...eventsData].sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
   );
 
   return (
     <div>
-      <div className=" flex justify-center items-center">
-       
-      </div>
+      <div className=" flex justify-center items-center"></div>
       <Swiper
         navigation
         pagination={{ clickable: true }}
@@ -72,8 +89,8 @@ export function HomeEventCards({
         breakpoints={breakpoints}
         className="mySwiper"
       >
-        {sortedEventData.map((card) => {
-          const eventDate = new Date(card.date);
+        {sortedEventData.map((event) => {
+          const eventDate = new Date(event.date);
           const isPastEvent = eventDate.getTime() < currentDate.getTime();
           const timeLeft = Math.max(
             eventDate.getTime() - currentDate.getTime(),
@@ -81,17 +98,20 @@ export function HomeEventCards({
           );
           const cardClass = isPastEvent ? "card-past" : "";
           return (
-            <SwiperSlide key={card.id} className={cardClass}>
+            <SwiperSlide key={event.id} className={cardClass}>
               <div className="card w-96 glass scale-[0.5]">
                 <figure>
-                  <img src={card.imgSrc} alt="photo" />
+                  <img src={event.image} alt="photo" />{" "}
+                  {/* Assuming the image URL is stored in the `image` property */}
                 </figure>
                 <div className="card-body">
-                  <title className="card-title">{card.title}</title>
-                  <h2 className="">{card.location}</h2>
-                  <h2 className="">{new Date(card.date).toDateString()}</h2>
+                  <h1 className="card-title">{event.name}</h1>{" "}
+                  {/* Assuming the title is stored in the `name` property */}
+                  <h2 className="">{event.location}</h2>
+                  <h2 className="">{new Date(event.date).toDateString()}</h2>
                   <p className="max-w-[265px] break-words">
-                    {card.description}
+                    {event.desc}{" "}
+                    {/* Assuming the description is stored in the `desc` property */}
                   </p>
                   {isPastEvent ? (
                     <p>This event has passed.</p>

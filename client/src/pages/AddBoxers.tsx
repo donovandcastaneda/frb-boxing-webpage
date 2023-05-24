@@ -29,7 +29,7 @@ export const AddBoxers = () => {
     <div className="form">
       <div className="flex items-center justify-center h-screen bg-dark-base">
         <form className="w-full max-w-xs">
-          <h1 className="mb-6 text-3xl font-bold text-primary text-center">
+          <h1 className="mb-6 text-3xl font-bold  text-center text-blue-500">
             Add Boxer
           </h1>
 
@@ -107,7 +107,7 @@ export const AddBoxers = () => {
 
           <button
             onClick={handleClick}
-            className="w-full bg-primary hover:bg-primary-focus text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Add
           </button>

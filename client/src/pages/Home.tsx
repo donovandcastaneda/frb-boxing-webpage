@@ -1,5 +1,4 @@
 import { HomeEventCards } from "../components/HomeEventCard";
-import EventData from "../data/EventData";
 
 export function Home() {
   return (
@@ -27,13 +26,7 @@ export function Home() {
       </div>
       <div className="">
         <section className="absolute bottom-0 w-full bg-base-100">
-          <HomeEventCards
-            imgUrl={undefined}
-            title={""}
-            description={""}
-            location={""}
-            date={new Date()}
-          />
+          <HomeEventCards />
         </section>
       </div>
     </div>

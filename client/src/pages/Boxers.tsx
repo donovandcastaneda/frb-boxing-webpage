@@ -51,14 +51,14 @@ export const Boxers = () => {
             />
             {auth.user && (
               <>
-                <div className="flex justify-end">
+                <div className="flex justify-end pr-6">
                   <button
                     onClick={() => handleDelete(boxer.id)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                   >
                     Delete
                   </button>
-                  <button className="bg-white text-gray-500 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
+                  <button className="bg-white text-gray-800 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
                     <Link to={`/UpdateBoxers/${boxer.id}`}>Update</Link>
                   </button>
                 </div>

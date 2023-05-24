@@ -64,26 +64,23 @@ export const Login = () => {
           <h1 className="mb-4 text-2xl font-bold text-blue-500">
             You are logged in!
           </h1>
-          <p>
-            <Link to="/AddBoxers" className="text-blue-500 underline">
-              Add Boxers
-            </Link>
-          </p>
-          <p>
-            <Link to="/AddCoaches" className="text-blue-500 underline">
-              Add Coaches
-            </Link>
-          </p>
-          <p>
-            <Link to="/AddEvents" className="text-blue-500 underline">
-              Add Events
-            </Link>
-          </p>
-          <p>
-            <a href="/" className="text-blue-500 underline">
-              Go to Home
-            </a>
-          </p>
+          <Link to="/AddBoxers" className="inline-block px-8 py-3 text-lg font-medium leading-6 text-center text-white uppercase transition bg-blue-500 rounded shadow ripple hover:shadow-lg hover:bg-blue-600 focus:outline-none">
+  Add Boxers
+</Link>
+
+<Link to="/AddCoaches" className="inline-block px-8 py-3 mt-4 text-lg font-medium leading-6 text-center text-white uppercase transition bg-blue-500 rounded shadow ripple hover:shadow-lg hover:bg-blue-600 focus:outline-none">
+  Add Coaches
+</Link>
+
+<Link to="/AddEvents" className="inline-block px-8 py-3 mt-4 text-lg font-medium leading-6 text-center text-white uppercase transition bg-blue-500 rounded shadow ripple hover:shadow-lg hover:bg-blue-600 focus:outline-none">
+  Add Events
+</Link>
+
+<a href="/" className="inline-block px-8 py-3 mt-4 text-lg font-medium leading-6 text-center text-white uppercase transition bg-blue-500 rounded shadow ripple hover:shadow-lg hover:bg-blue-600 focus:outline-none">
+  Go to Home
+</a>
+
+
         </section>
       ) : (
         <section className="flex flex-col items-center justify-center h-screen">
