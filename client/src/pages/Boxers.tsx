@@ -44,7 +44,7 @@ export const Boxers = () => {
         {boxers.map((boxer) => (
           <div key={boxer.id}>
             <BoxerCard
-              image={boxer.image}
+              image={`http://localhost:8800/images/`+ boxer.image}
               name={boxer.name}
               desc={boxer.desc}
               age={boxer.age}
