@@ -32,15 +32,15 @@ export const AddBoxers = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/boxers", formData)
-      .then(res => {
+      await axios.post("http://localhost:8800/boxers", formData).then((res) => {
         console.log(res.data);
-        if(res.data.Statue === "Success"){
-          console.log("Succeded")}
-        else{
-          console.log("Failed")
+        if (res.data.Status === "Success") {
+          console.log("Succeded");
+        } else {
+          console.log("Failed");
         }
-      })
+      });
+
       window.location.reload();
     } catch (err) {
       console.log(err);

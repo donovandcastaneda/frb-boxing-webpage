@@ -3,6 +3,11 @@ import mysql2 from "mysql2";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
+import fs from 'fs';
+import util from 'util';
+import heicConvert from 'heic-convert';
+import { readFile } from 'fs/promises';
+
 
 const app = express();
 
@@ -47,8 +52,26 @@ app.get("/boxers", (req, res) => {
   });
 });
 
-app.post("/boxers", upload.single("image"), (req, res) => {
-  const image = req.file.filename;
+
+app.post("/boxers", upload.single("image"), async (req, res) => {
+  let image = req.file.filename;
+
+  // Check if the uploaded file is a HEIC file
+  if (path.extname(image) === ".HEIC" || path.extname(image) === ".heic") {
+    const inputBuffer = await fs.promises.readFile("public/images/" + image);
+      
+    // Convert HEIC to JPEG
+    const outputBuffer = await heicConvert({
+      buffer: inputBuffer, // the HEIC file buffer
+      format: 'PNG',      // output format
+      quality: 1           // the jpeg compression quality, between 0 and 1
+    });
+
+    // Save converted JPEG file and replace `image` filename
+    const newFilename = path.join("public/images", `${path.basename(image, '.heic')}.png`);
+    await fs.promises.writeFile(newFilename, outputBuffer);
+    image = path.basename(newFilename);  }
+
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
   const values = [req.body.name, req.body.age, req.body.desc, image];
 
@@ -57,6 +80,8 @@ app.post("/boxers", upload.single("image"), (req, res) => {
     return res.json({ Status: "Success" });
   });
 });
+
+
 
 app.delete("/boxers/:id", (req, res) => {
   const boxerId = req.params.id;
