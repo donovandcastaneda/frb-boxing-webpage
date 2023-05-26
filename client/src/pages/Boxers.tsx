@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { BoxerCard } from "../components/BoxerCards";
 import { AuthContext } from "../context/AuthContext";
@@ -15,6 +14,7 @@ type Boxer = {
 
 export const Boxers = () => {
   const [boxers, setBoxers] = useState<Boxer[]>([]);
+  const [selectedBoxers, setSelectedBoxers] = useState<number[]>([]);
   const { auth } = useContext(AuthContext);
 
   useEffect(() => {
@@ -29,17 +29,27 @@ export const Boxers = () => {
     fetchAllBoxers();
   }, []);
 
-  const handleDelete = async (id: string | number) => {
+  const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/boxers/${id}`);
+      for (const id of selectedBoxers) {
+        await axios.delete(`http://localhost:8800/boxers/${id}`);
+      }
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   };
 
+  const handleCheckboxChange = (id: number, isChecked: boolean) => {
+    if (isChecked) {
+      setSelectedBoxers([...selectedBoxers, id]);
+    } else {
+      setSelectedBoxers(selectedBoxers.filter(boxerId => boxerId !== id));
+    }
+  };
+
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center pb-14">
+<div className="relative flex flex-col md:flex-row items-center justify-center pb-14">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {boxers.map((boxer) => (
           <div key={boxer.id}>
@@ -52,8 +62,13 @@ export const Boxers = () => {
             {auth.user && (
               <>
                 <div className="flex justify-end pr-6">
+                  <input
+                    type="checkbox"
+                    style={{ transform: "scale(1.5)", marginRight: '15px' }}
+                    onChange={e => handleCheckboxChange(boxer.id, e.target.checked)}
+                  />
                   <button
-                    onClick={() => handleDelete(boxer.id)}
+                    onClick={handleDelete}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                   >
                     Delete
@@ -67,6 +82,16 @@ export const Boxers = () => {
           </div>
         ))}
       </div>
+      {auth.user && selectedBoxers.length > 0 && (
+    <button
+    onClick={handleDelete}
+    className="absolute bottom-1 left-10  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md mb-4 "
+  >
+    Delete Selected
+  </button>
+  
+    
+      )}
     </div>
   );
 };

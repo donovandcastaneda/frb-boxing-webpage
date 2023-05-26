@@ -72,6 +72,7 @@ app.post("/boxers", upload.single("image"), async (req, res) => {
     await fs.promises.writeFile(newFilename, outputBuffer);
     image = path.basename(newFilename);  }
 
+
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
   const values = [req.body.name, req.body.age, req.body.desc, image];
 
