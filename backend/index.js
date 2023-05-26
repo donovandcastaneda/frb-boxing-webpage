@@ -1,6 +1,8 @@
 import express from "express";
 import mysql2 from "mysql2";
 import cors from "cors";
+import multer from "multer";
+import path from "path";
 
 const app = express();
 
@@ -13,6 +15,27 @@ const db = mysql2.createConnection({
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("public"));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      file.fieldname + "_" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 10000000, // allows up to 10 MB
+  },
+});
+``;
 
 //boxers
 
@@ -24,19 +47,16 @@ app.get("/boxers", (req, res) => {
   });
 });
 
-
-
-app.post("/boxers", (req, res) => {
+app.post("/boxers", upload.single("image"), (req, res) => {
+  const image = req.file.filename;
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
-  const values = [req.body.name, req.body.age, req.body.desc, req.body.image];
+  const values = [req.body.name, req.body.age, req.body.desc, image];
 
   db.query(q, [values], (err, data) => {
-    if (err) return res.json(err);
-    return res.json("boxer has been created");
+    if (err) return res.json({ Message: "Error", Error: err.message });
+    return res.json({ Status: "Success" });
   });
 });
-
-
 
 app.delete("/boxers/:id", (req, res) => {
   const boxerId = req.params.id;
@@ -48,11 +68,10 @@ app.delete("/boxers/:id", (req, res) => {
   });
 });
 
-
-
 app.put("/boxers/:id", (req, res) => {
   const boxerId = req.params.id;
-  const q = "UPDATE boxers SET `name`= ?, `desc`= ?, `image`= ?, `age`= ? WHERE id = ?";
+  const q =
+    "UPDATE boxers SET `name`= ?, `desc`= ?, `image`= ?, `age`= ? WHERE id = ?";
   const values = [req.body.name, req.body.desc, req.body.image, req.body.age];
 
   db.query(q, [...values, boxerId], (err, data) => {
@@ -63,7 +82,6 @@ app.put("/boxers/:id", (req, res) => {
 
 //coaches
 
-
 app.get("/coaches", (req, res) => {
   const q = "SELECT * FROM frb.coaches";
   db.query(q, (err, data) => {
@@ -71,8 +89,6 @@ app.get("/coaches", (req, res) => {
     return res.json(data);
   });
 });
-
-
 
 app.post("/coaches", (req, res) => {
   const q = "INSERT INTO coaches (`name`,`desc`,`image`) VALUES (?)";
@@ -84,8 +100,6 @@ app.post("/coaches", (req, res) => {
   });
 });
 
-
-
 app.delete("/coaches/:id", (req, res) => {
   const coachId = req.params.id;
   const q = "DELETE FROM coaches WHERE id = ?";
@@ -95,7 +109,6 @@ app.delete("/coaches/:id", (req, res) => {
     return res.json("Coach has been deleted.");
   });
 });
-
 
 app.put("/coaches/:id", (req, res) => {
   const coacheId = req.params.id;
@@ -107,7 +120,7 @@ app.put("/coaches/:id", (req, res) => {
     return res.json("Coach has been updated.");
   });
 });
- 
+
 //events
 
 app.get("/events", (req, res) => {
@@ -118,19 +131,22 @@ app.get("/events", (req, res) => {
   });
 });
 
-
-
 app.post("/events", (req, res) => {
-  const q = "INSERT INTO events (`name`,`desc`,`image`,`date`,`location`) VALUES (?)";
-  const values = [req.body.name, req.body.desc, req.body.image, req.body.date, req.body.location];
+  const q =
+    "INSERT INTO events (`name`,`desc`,`image`,`date`,`location`) VALUES (?)";
+  const values = [
+    req.body.name,
+    req.body.desc,
+    req.body.image,
+    req.body.date,
+    req.body.location,
+  ];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json(err);
     return res.json("Event has been created");
   });
 });
-
-
 
 app.delete("/events/:id", (req, res) => {
   const eventId = req.params.id;
@@ -142,11 +158,17 @@ app.delete("/events/:id", (req, res) => {
   });
 });
 
-
 app.put("/events/:id", (req, res) => {
   const eventId = req.params.id;
-  const q = "UPDATE events SET `name`= ?, `desc`= ?, `image`= ?,`date`= ?,`location`= ?  WHERE id = ?";
-  const values = [req.body.name, req.body.desc, req.body.image, req.body.date, req.body.location];
+  const q =
+    "UPDATE events SET `name`= ?, `desc`= ?, `image`= ?,`date`= ?,`location`= ?  WHERE id = ?";
+  const values = [
+    req.body.name,
+    req.body.desc,
+    req.body.image,
+    req.body.date,
+    req.body.location,
+  ];
 
   db.query(q, [...values, eventId], (err, data) => {
     if (err) return res.json(err);
@@ -154,9 +176,6 @@ app.put("/events/:id", (req, res) => {
   });
 });
 
-
 app.listen(8800, () => {
   console.log("connected to backend!");
 });
-
-

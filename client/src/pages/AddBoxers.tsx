@@ -6,19 +6,41 @@ export const AddBoxers = () => {
     name: "",
     age: "",
     desc: "",
-    image: "",
   });
+
+  const [file, setFile] = useState<File | null>(null);
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setBoxer((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    setFile(file);
+  };
+
   const [error, setError] = useState(false);
+
+  const formData = new FormData();
+  formData.append("name", boxer.name);
+  formData.append("age", boxer.age);
+  formData.append("desc", boxer.desc);
+  if (file) {
+    formData.append("image", file);
+  }
 
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/boxers", boxer);
+      await axios.post("http://localhost:8800/boxers", formData)
+      .then(res => {
+        console.log(res.data);
+        if(res.data.Statue === "Success"){
+          console.log("Succeded")}
+        else{
+          console.log("Failed")
+        }
+      })
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -97,10 +119,9 @@ export const AddBoxers = () => {
             <input
               id="image"
               type="file"
-              placeholder="image"
               name="image"
               required
-              onChange={handleChange}
+              onChange={handleFileChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-content leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
