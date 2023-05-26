@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 export const Login = () => {
   const userRef = useRef();
@@ -40,7 +42,7 @@ export const Login = () => {
       setSuccess(true);
     } catch (err) {
       //admin password
-      if (user === "admin" && pwd === "password123") {
+      if (user === process.env.REACT_APP_USERNAME && pwd === process.env.REACT_APP_PASSWORD) {
         setAuth({ user, pwd, roles: ["admin"] });
         setSuccess(true);
       }
