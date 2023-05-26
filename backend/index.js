@@ -8,7 +8,6 @@ import util from 'util';
 import { PNG } from 'pngjs';
 import * as dotenv from 'dotenv'
 dotenv.config()
-import libheif from 'libheif-js';
 
 
 
@@ -62,33 +61,6 @@ app.get("/boxers", (req, res) => {
 
 app.post("/boxers", upload.single("image"), async (req, res) => {
   let image = req.file.filename;
-
- 
-  // Check if the uploaded file is a HEIC file
-  if (path.extname(image).toLowerCase() === ".heic") {
-    const inputBuffer = await readFile(`public/images/${image}`);
-
-    const decoder = new libheif.HeifDecoder();
-    const heifData = decoder.decode(inputBuffer);
-    const image = heifData.getImages()[0];
-    const colorImage = image.display();
-    const rawData = colorImage.getRawData();
-
-    // Create new PNG
-    const png = new PNG({
-      width: colorImage.width,
-      height: colorImage.height
-    });
-    png.data = rawData;
-    const pngBuffer = PNG.sync.write(png);
-      
-    // Save converted PNG file and replace `image` filename
-    const newFilename = path.join("public/images", `${path.basename(image, '.heic')}.png`);
-    await writeFile(newFilename, pngBuffer);
-    image = path.basename(newFilename);
-  }
-
-
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
   const values = [req.body.name, req.body.age, req.body.desc, image];
 
