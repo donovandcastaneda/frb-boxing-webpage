@@ -3,26 +3,21 @@ import mysql2 from "mysql2";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
-import fs from 'fs';
-import util from 'util';
-import { PNG } from 'pngjs';
-import * as dotenv from 'dotenv'
-dotenv.config()
-
-
+import fs from "fs";
+import util from "util";
+import { PNG } from "pngjs";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-
-
 
 const db = mysql2.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
+  port: process.env.SERVER_PORT,
 });
-
-
 
 app.use(express.json());
 app.use(cors());
@@ -58,7 +53,6 @@ app.get("/boxers", (req, res) => {
   });
 });
 
-
 app.post("/boxers", upload.single("image"), async (req, res) => {
   let image = req.file.filename;
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
@@ -69,8 +63,6 @@ app.post("/boxers", upload.single("image"), async (req, res) => {
     return res.json({ Status: "Success" });
   });
 });
-
-
 
 app.delete("/boxers/:id", (req, res) => {
   const boxerId = req.params.id;
