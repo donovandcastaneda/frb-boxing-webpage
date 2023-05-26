@@ -5,10 +5,11 @@ import multer from "multer";
 import path from "path";
 import fs from 'fs';
 import util from 'util';
-import heicConvert from 'heic-convert';
-import { readFile } from 'fs/promises';
+import { PNG } from 'pngjs';
 import * as dotenv from 'dotenv'
 dotenv.config()
+import libheif from 'libheif-js';
+
 
 
 const app = express();
@@ -62,21 +63,30 @@ app.get("/boxers", (req, res) => {
 app.post("/boxers", upload.single("image"), async (req, res) => {
   let image = req.file.filename;
 
+ 
   // Check if the uploaded file is a HEIC file
-  if (path.extname(image) === ".HEIC" || path.extname(image) === ".heic") {
-    const inputBuffer = await fs.promises.readFile("public/images/" + image);
-      
-    // Convert HEIC to JPEG
-    const outputBuffer = await heicConvert({
-      buffer: inputBuffer, // the HEIC file buffer
-      format: 'PNG',      // output format
-      quality: 1           // the jpeg compression quality, between 0 and 1
-    });
+  if (path.extname(image).toLowerCase() === ".heic") {
+    const inputBuffer = await readFile(`public/images/${image}`);
 
-    // Save converted JPEG file and replace `image` filename
+    const decoder = new libheif.HeifDecoder();
+    const heifData = decoder.decode(inputBuffer);
+    const image = heifData.getImages()[0];
+    const colorImage = image.display();
+    const rawData = colorImage.getRawData();
+
+    // Create new PNG
+    const png = new PNG({
+      width: colorImage.width,
+      height: colorImage.height
+    });
+    png.data = rawData;
+    const pngBuffer = PNG.sync.write(png);
+      
+    // Save converted PNG file and replace `image` filename
     const newFilename = path.join("public/images", `${path.basename(image, '.heic')}.png`);
-    await fs.promises.writeFile(newFilename, outputBuffer);
-    image = path.basename(newFilename);  }
+    await writeFile(newFilename, pngBuffer);
+    image = path.basename(newFilename);
+  }
 
 
   const q = "INSERT INTO boxers (`name`,`age`,`desc`,`image`) VALUES (?)";
