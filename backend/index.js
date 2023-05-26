@@ -7,16 +7,22 @@ import fs from 'fs';
 import util from 'util';
 import heicConvert from 'heic-convert';
 import { readFile } from 'fs/promises';
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 
 const app = express();
 
+
+
 const db = mysql2.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "June1$t61",
-  database: "frb",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
+
+
 
 app.use(express.json());
 app.use(cors());
@@ -202,6 +208,6 @@ app.put("/events/:id", (req, res) => {
   });
 });
 
-app.listen(8800, () => {
+app.listen(process.env.SERVER_PORT, () => {
   console.log("connected to backend!");
 });
