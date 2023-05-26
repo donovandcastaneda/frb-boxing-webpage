@@ -19,6 +19,11 @@ const db = mysql2.createConnection({
   port: process.env.SERVER_PORT,
 });
 
+db.on('error', function(err) {
+  console.error('Error connecting to database: ', err);
+  // Handle or report error, and perhaps try reconnecting
+});
+
 app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
