@@ -12,11 +12,10 @@ dotenv.config();
 const app = express();
 
 const db = mysql2.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  port: process.env.SERVER_PORT,
+  host:'localhost',
+  user:'root',
+  password:'June1$t61',
+  database:'frb',
 });
 
 db.on('error', function(err) {
@@ -187,6 +186,6 @@ app.put("/events/:id", (req, res) => {
   });
 });
 
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(8800, () => {
   console.log("connected to backend!");
 });

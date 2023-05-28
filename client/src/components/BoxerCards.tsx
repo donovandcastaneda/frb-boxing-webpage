@@ -3,7 +3,7 @@ import { BoxerCardInterface } from "../types/Types";
 export function BoxerCard({ name, image, age, desc }: BoxerCardInterface) {
   return (
     <div className="p-5">
-      <div className="card w-96 glass">
+      <div className="card w-full lg:w-9/12   glass">
         <figure>
           <img src={image} alt="picture" />
         </figure>
