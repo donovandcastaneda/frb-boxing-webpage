@@ -12,15 +12,15 @@ dotenv.config();
 const app = express();
 
 const db = mysql2.createConnection({
-  host:'localhost',
-  user:'root',
-  password:'June1$t61',
-  database:'frb',
-  port: 8800,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
-db.on('error', function(err) {
-  console.error('Error connecting to database: ', err);
+
+db.on("error", function (err) {
+  console.error("Error connecting to database: ", err);
   // Handle or report error, and perhaps try reconnecting
 });
 
