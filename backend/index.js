@@ -16,6 +16,7 @@ const db = mysql2.createConnection({
   user:'root',
   password:'June1$t61',
   database:'frb',
+  port: 8800,
 });
 
 db.on('error', function(err) {
