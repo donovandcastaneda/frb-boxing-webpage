@@ -1,28 +1,22 @@
 import express from "express";
-import mysql2 from "mysql2";
+import mongoose from "mongoose";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 import util from "util";
-import { PNG } from "pngjs";
 import * as dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
 
-const db = mysql2.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
-});
 
 
-db.on("error", function (err) {
-  console.error("Error connecting to database: ", err);
-  // Handle or report error, and perhaps try reconnecting
-});
+mongoose.connect(process.env.DB_CONNECTION, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log("MongoDB connection established"))
+  .catch(err => console.log("Error in MongoDB connection: ", err));
 
 app.use(express.json());
 app.use(cors());
@@ -50,12 +44,9 @@ const upload = multer({
 
 //boxers
 
-app.get("/boxers", (req, res) => {
-  const q = "SELECT * FROM frb.boxers";
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
+app.get("/boxers", async (req, res) => {
+  const boxers = await Boxers.find();
+  res.json(boxers);
 });
 
 app.post("/boxers", upload.single("image"), async (req, res) => {
