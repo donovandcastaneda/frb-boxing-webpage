@@ -9,6 +9,7 @@ export const AddBoxers = () => {
   });
 
   const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState(false);
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setBoxer((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -19,7 +20,6 @@ export const AddBoxers = () => {
     setFile(file);
   };
 
-  const [error, setError] = useState(false);
 
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();

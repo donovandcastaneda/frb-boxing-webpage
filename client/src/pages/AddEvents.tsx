@@ -2,17 +2,27 @@ import axios from "axios";
 import { useState } from "react";
 
 export const AddEvents = () => {
+
+
   const [event, setEvent] = useState({
     name: "",
     desc: "",
     image: "",
   });
+  const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState(false);
+
+
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setEvent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const [error, setError] = useState(false);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    setFile(file);
+  };
+
 
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -73,15 +83,14 @@ export const AddEvents = () => {
               htmlFor="image"
               className="block text-neutral-content text-sm font-bold mb-2"
             >
-              Image URL:
+              Image:
             </label>
             <input
               id="image"
-              type="text"
-              placeholder="image"
+              type="file"
               name="image"
               required
-              onChange={handleChange}
+              onChange={handleFileChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-content leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
