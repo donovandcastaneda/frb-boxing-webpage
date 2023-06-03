@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
 type Boxer = {
-  id: number;
+  _id: any;
   image: any;
   name: string;
   age: any;
@@ -31,29 +31,29 @@ export const Boxers = () => {
 
   const handleMultipleDelete = async () => {
     try {
-      for (const id of selectedBoxers) {
-        await axios.delete(`http://localhost:8800/boxers/${id}`);
+      for (const _id of selectedBoxers) {
+        await axios.delete(`http://localhost:8800/boxers/${_id}`);
       }
       window.location.reload();
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const handleSingleDelete = async (id: number) => {
+  const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/coaches/${id}`);
+      await axios.delete(`http://localhost:8800/boxers/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleCheckboxChange = (id: number, isChecked: boolean) => {
+  const handleCheckboxChange = (_id: any, isChecked: boolean) => {
     if (isChecked) {
-      setSelectedBoxers([...selectedBoxers, id]);
+      setSelectedBoxers([...selectedBoxers, _id]);
     } else {
-      setSelectedBoxers(selectedBoxers.filter((boxerId) => boxerId !== id));
+      setSelectedBoxers(selectedBoxers.filter((boxerId) => boxerId !== _id));
     }
   };
 
@@ -61,7 +61,7 @@ export const Boxers = () => {
     <div className="relative flex flex-col md:flex-row items-center justify-center pb-14">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {boxers.map((boxer) => (
-          <div key={boxer.id}>
+          <div key={boxer._id}>
             <BoxerCard
               image={`http://localhost:8800/images/` + boxer.image}
               name={boxer.name}
@@ -75,17 +75,17 @@ export const Boxers = () => {
                     type="checkbox"
                     style={{ transform: "scale(1.5)", marginRight: "15px" }}
                     onChange={(e) =>
-                      handleCheckboxChange(boxer.id, e.target.checked)
+                      handleCheckboxChange(boxer._id, e.target.checked)
                     }
                   />
                   <button
-                    onClick={() => handleSingleDelete(boxer.id)}
+                    onClick={() => handleSingleDelete(boxer._id)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                   >
                     Delete
                   </button>
                   <button className="bg-white text-gray-800 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
-                    <Link to={`/UpdateBoxers/${boxer.id}`}>Update</Link>
+                    <Link to={`/UpdateBoxers/${boxer._id}`}>Update</Link>
                   </button>
                 </div>
               </>
@@ -95,7 +95,7 @@ export const Boxers = () => {
       </div>
       {auth.user && selectedBoxers.length > 0 && (
         <button
-          onClick={handleMultipleDelete}
+          onClick = {handleMultipleDelete}
           className="absolute bottom-1 left-10  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md mb-4 "
         >
           Delete Selected

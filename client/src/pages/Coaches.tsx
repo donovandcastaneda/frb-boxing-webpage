@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
 type Coach = {
-  id: number;
+  _id: any;
   image: any;
   name: string;
   desc: string;
@@ -30,8 +30,8 @@ export const Coaches = () => {
 
   const handleMultipleDelete = async () => {
     try {
-      for (const id of selectedCoaches) {
-        await axios.delete(`http://localhost:8800/coaches/${id}`);
+      for (const _id of selectedCoaches) {
+        await axios.delete(`http://localhost:8800/coaches/${_id}`);
       }
       window.location.reload();
     } catch (err) {
@@ -39,20 +39,20 @@ export const Coaches = () => {
     }
   };
 
-  const handleSingleDelete = async (id: number) => {
+  const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/coaches/${id}`);
+      await axios.delete(`http://localhost:8800/coaches/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleCheckboxChange = (id: number, isChecked: boolean) => {
+  const handleCheckboxChange = (_id: any, isChecked: boolean) => {
     if (isChecked) {
-      setSelectedCoaches([...selectedCoaches, id]);
+      setSelectedCoaches([...selectedCoaches, _id]);
     } else {
-      setSelectedCoaches(selectedCoaches.filter((coachId) => coachId !== id));
+      setSelectedCoaches(selectedCoaches.filter((coachId) => coachId !== _id));
     }
   };
 
@@ -60,7 +60,7 @@ export const Coaches = () => {
     <div className="relative flex flex-col md:flex-row items-center justify-center pb-14">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {coaches.map((coach) => (
-          <div key={coach.id}>
+          <div key={coach._id}>
             <CoachCard
               image={`http://localhost:8800/images/` + coach.image}
               name={coach.name}
@@ -73,17 +73,17 @@ export const Coaches = () => {
                     type="checkbox"
                     style={{ transform: "scale(1.5)", marginRight: "15px" }}
                     onChange={(e) =>
-                      handleCheckboxChange(coach.id, e.target.checked)
+                      handleCheckboxChange(coach._id, e.target.checked)
                     }
                   />
                   <button
-                    onClick={() => handleSingleDelete(coach.id)}
+                    onClick={() => handleSingleDelete(coach._id)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                   >
                     Delete
                   </button>
                   <button className="bg-white text-gray-800 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
-                    <Link to={`/UpdateCoaches/${coach.id}`}>Update</Link>
+                    <Link to={`/UpdateCoaches/${coach._id}`}>Update</Link>
                   </button>
                 </div>
               </>

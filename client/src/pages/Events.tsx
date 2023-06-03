@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
 type Event = {
-  id: number;
+  _id: any;
   image: any;
   name: string;
   desc: string;
@@ -15,7 +15,7 @@ type Event = {
 
 export const Events = () => {
   const [events, setEvents] = useState<Event[]>([]);
-  const [selectedEvents, setSelectedEvents] = useState<number[]>([]);
+  const [selectedEvents, setSelectedEvents] = useState<Number[]>([]);
   const { auth } = useContext(AuthContext);
 
   useEffect(() => {
@@ -30,9 +30,9 @@ export const Events = () => {
     fetchAllEvents();
   }, []);
 
-  const handleSingleDelete = async (id: number) => {
+  const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/events/${id}`);
+      await axios.delete(`http://localhost:8800/events/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -41,8 +41,8 @@ export const Events = () => {
 
   const handleMultipleDelete = async () => {
     try {
-      for (const id of selectedEvents) {
-        await axios.delete(`http://localhost:8800/events/${id}`);
+      for (const _id of selectedEvents) {
+        await axios.delete(`http://localhost:8800/events/${_id}`);
       }
       window.location.reload();
     } catch (err) {
@@ -50,11 +50,11 @@ export const Events = () => {
     }
   };
 
-  const handleCheckboxChange = (id: number, isChecked: boolean) => {
+  const handleCheckboxChange = (_id: any, isChecked: boolean) => {
     if (isChecked) {
-      setSelectedEvents([...selectedEvents, id]);
+      setSelectedEvents([...selectedEvents, _id]);
     } else {
-      setSelectedEvents(selectedEvents.filter((eventId) => eventId !== id));
+      setSelectedEvents(selectedEvents.filter((eventId) => eventId !== _id));
     }
   };
 
@@ -63,7 +63,7 @@ export const Events = () => {
       <div className="flex flex-col md:flex-row items-center justify-center pb-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {events.map((event) => (
-            <div key={event.id}>
+            <div key={event._id}>
               <EventCard
                 name={event.name}
                 image={`http://localhost:8800/images/` + event.image}
@@ -78,17 +78,17 @@ export const Events = () => {
                       type="checkbox"
                       style={{ transform: "scale(1.5)", marginRight: "15px" }}
                       onChange={(e) =>
-                        handleCheckboxChange(event.id, e.target.checked)
+                        handleCheckboxChange(event._id, e.target.checked)
                       }
                     />
                     <button
-                      onClick={() => handleSingleDelete(event.id)}
+                      onClick={() => handleSingleDelete(event._id)}
                       className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                     >
                       Delete
                     </button>
                     <button className="bg-white text-gray-800 hover:bg-gray-100 px-4 py-2 rounded-md ml-2">
-                      <Link to={`/UpdateEvents/${event.id}`}>Update</Link>
+                      <Link to={`/UpdateEvents/${event._id}`}>Update</Link>
                     </button>
                   </div>
                 </>

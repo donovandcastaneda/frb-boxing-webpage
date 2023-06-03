@@ -49,15 +49,33 @@ const upload = multer({
 ``;
 
 // Boxers
-app.get("/boxers/:id", async (req, res) => {
+
+app.get("/boxers", async (req, res) => {
   try {
-    const { id } = req.params;
-    const boxer = await Boxer.findById(id);
-    res.status(200).json(boxer);
+    const boxers = await Boxer.find({});
+    res.status(200).json(boxers);
   } catch (err) {
     res.status(500).json({ Message: "Error", Error: err.message });
   }
 });
+
+
+app.get("/boxers/:id", async (req, res) => {
+  try {
+    console.log("Request parameters:", req.params);
+    const boxer = await Boxer.findById(req.params.id);
+    if (!boxer) {
+      res.status(404).json({ message: "No boxer found with this ID" });
+    } else {
+      res.status(200).json(boxer);
+    }
+  } catch (err) {
+    console.log("Error:", err);
+    res.status(500).json({ Message: "Error", Error: err.message });
+  }
+});
+
+
 
 app.post("/boxers", upload.single("image"), async (req, res) => {
   try {
@@ -76,16 +94,23 @@ app.post("/boxers", upload.single("image"), async (req, res) => {
 
 app.delete("/boxers/:id", async (req, res) => {
   try {
-    await Boxer.findByIdAndRemove(req.params.id);
-    res.json("Boxer has been deleted.");
-  } catch (err) {
-    res.json(err);
+    const { id } = req.params;
+    console.log('Received ID to delete:', id);  // Log the received ID
+    const deletedBoxer = await Boxer.findByIdAndDelete(id);
+    if (!deletedBoxer) {
+      return res.status(404).json({ message: `Cannot find any Boxer with ID ${id}` });
+    }
+    res.status(200).json(deletedBoxer);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
+
+
 app.put("/boxers/:id", upload.single('image'), async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params.id;
     const boxerUpdate = {
       name: req.body.name,
       age: req.body.age,
@@ -104,15 +129,15 @@ app.put("/boxers/:id", upload.single('image'), async (req, res) => {
 
 
 // Coaches
-app.get("/coaches/:id", async (req, res) => {
+app.get("/coaches", async (req, res) => {
   try {
-    const { id } = req.params;
-    const coach = await Coach.findById(id);
-    res.status(200).json(coach);
+    const coaches = await Coach.find({});
+    res.status(200).json(coaches);
   } catch (err) {
     res.status(500).json({ Message: "Error", Error: err.message });
   }
 });
+
 
 app.post("/coaches", upload.single("image"), async (req, res) => {
   try {
@@ -157,11 +182,10 @@ app.put("/coaches/:id", upload.single('image'), async (req, res) => {
 
 
 // Events
-app.get("/events/:id", async (req, res) => {
+app.get("/events", async (req, res) => {
   try {
-    const { id } = req.params;
-    const event = await Event.findById(id);
-    res.status(200).json(event);
+    const events = await Event.find({});
+    res.status(200).json(events);
   } catch (err) {
     res.status(500).json({ Message: "Error", Error: err.message });
   }
