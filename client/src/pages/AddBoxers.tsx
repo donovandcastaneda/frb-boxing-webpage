@@ -21,25 +21,26 @@ export const AddBoxers = () => {
 
   const [error, setError] = useState(false);
 
-  const formData = new FormData();
-  formData.append("name", boxer.name);
-  formData.append("age", boxer.age);
-  formData.append("desc", boxer.desc);
-  if (file) {
-    formData.append("image", file);
-  }
-
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", boxer.name);
+    formData.append("age", boxer.age);
+    formData.append("desc", boxer.desc);
+    if (file) {
+      formData.append("image", file);
+    }
     try {
-      await axios.post("https://frb-backend.onrender.com/boxers", formData).then((res) => {
-        console.log(res.data);
-        if (res.data.Status === "Success") {
-          console.log("Succeded");
-        } else {
-          console.log("Failed");
-        }
-      });
+      await axios
+        .post("https://frb-backend.onrender.com/boxers", formData)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.Status === "Success") {
+            console.log("Succeded");
+          } else {
+            console.log("Failed");
+          }
+        });
 
       window.location.reload();
     } catch (err) {
