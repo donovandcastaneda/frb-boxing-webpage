@@ -27,7 +27,7 @@ export function HomeEventCards() {
     // fetch events from your server
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/events");
+        const res = await axios.get("https://frb-backend.onrender.com/events");
         setEventsData(res.data);
       } catch (err) {
         console.log(err);

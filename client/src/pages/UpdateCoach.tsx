@@ -23,7 +23,7 @@ export const UpdateCoaches = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:8800/coaches/" + coachId, coach);
+      await axios.put("https://frb-backend.onrender.com/coaches/" + coachId, coach);
       window.location.reload();
     } catch (err) {
       console.log(err);

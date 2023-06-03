@@ -23,7 +23,7 @@ export const UpdateBoxers = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:8800/boxers/" + boxerId, boxer);
+      await axios.put("https://frb-backend.onrender.com/boxers/" + boxerId, boxer);
       window.location.reload();
     } catch (err) {
       console.log(err);

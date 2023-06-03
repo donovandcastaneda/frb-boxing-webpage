@@ -21,7 +21,7 @@ export const Events = () => {
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/events");
+        const res = await axios.get("https://frb-backend.onrender.com/events");
         setEvents(res.data);
       } catch (err) {
         console.log(err);
@@ -32,7 +32,7 @@ export const Events = () => {
 
   const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/events/${_id}`);
+      await axios.delete(`https://frb-backend.onrender.com/events/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -42,7 +42,7 @@ export const Events = () => {
   const handleMultipleDelete = async () => {
     try {
       for (const _id of selectedEvents) {
-        await axios.delete(`http://localhost:8800/events/${_id}`);
+        await axios.delete(`https://frb-backend.onrender.com/events/${_id}`);
       }
       window.location.reload();
     } catch (err) {
@@ -66,7 +66,7 @@ export const Events = () => {
             <div key={event._id}>
               <EventCard
                 name={event.name}
-                image={`http://localhost:8800/images/` + event.image}
+                image={`https://frb-backend.onrender.com/images/` + event.image}
                 date={new Date(event.date)}
                 desc={event.desc}
                 location={event.location}

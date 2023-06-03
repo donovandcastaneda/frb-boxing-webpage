@@ -20,7 +20,7 @@ export const Boxers = () => {
   useEffect(() => {
     const fetchAllBoxers = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/boxers");
+        const res = await axios.get("https://frb-backend.onrender.com/boxers");
         setBoxers(res.data);
       } catch (err) {
         console.log(err);
@@ -32,7 +32,7 @@ export const Boxers = () => {
   const handleMultipleDelete = async () => {
     try {
       for (const _id of selectedBoxers) {
-        await axios.delete(`http://localhost:8800/boxers/${_id}`);
+        await axios.delete(`https://frb-backend.onrender.com/boxers/${_id}`);
       }
       window.location.reload();
     } catch (error) {
@@ -42,7 +42,7 @@ export const Boxers = () => {
 
   const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/boxers/${_id}`);
+      await axios.delete(`https://frb-backend.onrender.com/boxers/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -63,7 +63,7 @@ export const Boxers = () => {
         {boxers.map((boxer) => (
           <div key={boxer._id}>
             <BoxerCard
-              image={`http://localhost:8800/images/` + boxer.image}
+              image={`https://frb-backend.onrender.com/images/` + boxer.image}
               name={boxer.name}
               desc={boxer.desc}
               age={boxer.age}

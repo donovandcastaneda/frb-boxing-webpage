@@ -2,6 +2,7 @@
   "name": "frb-boxing-webpage",
   "private": true,
   "version": "0.0.0",
+  "proxy": "https://frb-backend.onrender.com",
   "type": "module",
   "scripts": {
     "dev": "vite",

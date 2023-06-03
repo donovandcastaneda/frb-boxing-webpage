@@ -23,7 +23,7 @@ export const UpdateEvents = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:8800/events/" + eventId, event);
+      await axios.put("https://frb-backend.onrender.com/events/" + eventId, event);
       window.location.reload();
     } catch (err) {
       console.log(err);

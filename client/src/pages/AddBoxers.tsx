@@ -32,7 +32,7 @@ export const AddBoxers = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/boxers", formData).then((res) => {
+      await axios.post("https://frb-backend.onrender.com/boxers", formData).then((res) => {
         console.log(res.data);
         if (res.data.Status === "Success") {
           console.log("Succeded");

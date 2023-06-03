@@ -17,7 +17,7 @@ export const AddCoaches = () => {
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/coaches", coach);
+      await axios.post("https://frb-backend.onrender.com/coaches", coach);
       window.location.reload();
     } catch (err) {
       console.log(err);

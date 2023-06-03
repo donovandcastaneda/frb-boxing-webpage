@@ -19,7 +19,7 @@ export const Coaches = () => {
   useEffect(() => {
     const fetchAllCoaches = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/coaches");
+        const res = await axios.get("https://frb-backend.onrender.com/coaches");
         setCoaches(res.data);
       } catch (err) {
         console.log(err);
@@ -31,7 +31,7 @@ export const Coaches = () => {
   const handleMultipleDelete = async () => {
     try {
       for (const _id of selectedCoaches) {
-        await axios.delete(`http://localhost:8800/coaches/${_id}`);
+        await axios.delete(`https://frb-backend.onrender.com/coaches/${_id}`);
       }
       window.location.reload();
     } catch (err) {
@@ -41,7 +41,7 @@ export const Coaches = () => {
 
   const handleSingleDelete = async (_id: any) => {
     try {
-      await axios.delete(`http://localhost:8800/coaches/${_id}`);
+      await axios.delete(`https://frb-backend.onrender.com/coaches/${_id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -62,7 +62,7 @@ export const Coaches = () => {
         {coaches.map((coach) => (
           <div key={coach._id}>
             <CoachCard
-              image={`http://localhost:8800/images/` + coach.image}
+              image={`https://frb-backend.onrender.com/images/` + coach.image}
               name={coach.name}
               desc={coach.desc}
             />
