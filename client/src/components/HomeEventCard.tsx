@@ -101,9 +101,9 @@ export function HomeEventCards() {
             <SwiperSlide key={event.id} className={cardClass}>
               <div className="card w-96 glass scale-[0.5]">
                 <figure>
-                  <img src={event.image} alt="photo" />{" "}
-                  {/* Assuming the image URL is stored in the `image` property */}
+                  <img src={event.image} alt="photo" loading="lazy" />
                 </figure>
+
                 <div className="card-body">
                   <h1 className="card-title">{event.name}</h1>{" "}
                   {/* Assuming the title is stored in the `name` property */}

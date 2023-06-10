@@ -5,7 +5,7 @@ export function BoxerCard({ name, image, age, desc }: BoxerCardInterface) {
     <div className="p-5">
       <div className="card w-full lg:w-9/12   glass">
         <figure>
-          <img src={image} alt="picture" />
+          <img src={image} alt="picture" loading="lazy" />
         </figure>
         <div className="card-body">
           <h1 className="card-title flex-col">{name}</h1>

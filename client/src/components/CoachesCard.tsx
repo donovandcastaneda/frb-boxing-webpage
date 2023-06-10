@@ -5,7 +5,7 @@ export function CoachCard({ name, image, desc }: CoachCardInterface) {
     <div className="p-5">
       <div className="card w-96 glass ">
         <figure>
-          <img src={image} alt="coach" />
+          <img src={image} alt="coach" loading="lazy" />
         </figure>
         <div className="card-body">
           <h1 className="card-title flex-col">{name}</h1>
